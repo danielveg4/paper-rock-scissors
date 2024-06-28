@@ -203,3 +203,15 @@ const startingA = names => {
 }
 
 startingA(['alonso', 'cano', 'asesino']);
+
+const numbersToten = (a) => {
+    for (let i = 10; i >= 0; i--) {
+            console.log('tabla: ' + a + 'x' + i + '=' + a*i)
+    }
+}
+
+numbersToten(3);
+
+
+/* recibe año y edad, debe imprimir "naciste en el año X, en el año X cumpliste X años " */
+
