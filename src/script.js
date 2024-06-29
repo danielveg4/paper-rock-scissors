@@ -215,3 +215,55 @@ numbersToten(3);
 
 /* recibe año y edad, debe imprimir "naciste en el año X, en el año X cumpliste X años " */
 
+/* funciçon que recibe un array de 10 numeros e imprime el numero y su cuadrado */
+
+const tenthArray = numbers => {
+    for (const number of numbers) {
+        console.log('El número es ' + number + ' y su cuadrado es ' + (number*number))
+    }
+}
+
+const tenthArray2 = numbers => {
+    if (!Array.isArray(numbers)) {
+        console.log('no es un array');
+        return;
+    } 
+    if (numbers.length !== 10 ) {
+        console.log('introduce 10 numeros')
+    }
+
+    for (let i = 0; i < 10; i++) {
+        console.log('El número es ' + numbers[i] + ' y su cuadrado es ' + (numbers[i]*[numbers[i]]))
+    }
+}
+
+tenthArray([0,2,3,4,5,6,7,8,13,20])
+
+tenthArray2([0,2,3,4,5,6,7,8,13,20])
+
+/* crea una funcion que reciba una palabra e imprima esa palabra con las vocales en mayusculas */
+
+const upperWord = word => {
+  /*   if (typeof word !== 'string'){
+        console.log('introduce una palabra')
+    }
+    if (word.length !== 1){
+        console.log('introduce solo una palabra')
+    }
+} */
+    const arrayDividido = word.split('')
+    const newWord = []
+
+    for (let i = 0; i <= arrayDividido.length; i++){
+        if (arrayDividido[i] === 'a' || arrayDividido[i] === 'e' || arrayDividido[i] === 'i' || arrayDividido[i] === 'o' || arrayDividido[i] === 'u') {
+        newWord.push(arrayDividido[i].toUpperCase())
+    } else {
+        newWord.push(arrayDividido[i])
+        }
+}
+console.log(newWord.join(''))
+
+}
+
+
+upperWord('mayusculas')
