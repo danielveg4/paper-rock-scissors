@@ -346,3 +346,113 @@ const tenArray = numbers => {
 }
 
 tenArray([1,2,3,4,5,6,7,8,9,10])
+
+
+/* crea una funcion que reciba un array con 5 palabras, debes imprimir
+por consola un array que contenga la inicial y la ultima letra de cada palabra en mayúsculas */
+
+
+const fiveWords = words => {
+    if (!Array.isArray(words)){
+        console.log('tiene que ser un array');
+        return;
+    }
+
+    const newArray = [];
+
+    for (const word of words) {
+        firstLetter = word[0];
+        lastLetter = word[word.length-1];
+        newArray.push(firstLetter.toUpperCase());
+        newArray.push(lastLetter.toUpperCase());
+        
+    }
+console.log(newArray)
+
+}
+
+fiveWords(['hola', 'como', 'estamos', 'hoy', 'domingo'])
+
+
+
+
+
+// Dado este objeto, rellénalo con los datos que te pido usando el array de numbers.
+
+
+const numbersData = {
+  numbers: [10, 32, 31, 68, 91, 24, 51, 47],
+  firstFloor: {
+    firstRoom: {
+      // número + 2
+      numbersPlus2: []
+    },
+    secondRoom: {
+      // número - 2
+      numbersMinus2: []
+    }
+  },
+  secondFloor: {
+    firstRoom: {
+      // número * 2
+      numbersDouble: []
+    },
+    secondRoom: {
+      // número / 2
+      numbersDivided2: []
+    }
+  },
+  thirdFloor: {
+    // sólo pares
+    onlyEven: [],
+    // sólo impares
+    onlyOdd: []
+  },
+  fourthFloor: {
+    // número al cuadrado
+    squareNumbers: [],
+    // número al cubo
+    cubeNumbers: []
+  },
+  fifthFloor: {
+    // número aleatorio entre 0 y number
+    randomNumbers: []
+  },
+  sixthFloor: {
+    // Array de numbers al revés
+    reversedNumbers: []
+  }
+};
+
+
+// Dado este objeto, rellénalo con los valores que te pido sacando los datos de la propiedad "phrase". 
+
+const stringsData = {
+  phrase: 'El conocimiento es poder, pero la práctica es la clave para desbloquearlo.',
+  firstFloor: {
+    //Sólo vocales
+    vowels: []
+  },
+  secondFloor: {
+    //Sólo consonantes (sin espacios, sin puntos y sin comas)
+    consonants: []
+  },
+
+  thirdFloor: {
+    //El valor asciicode de cada letra
+    //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
+    asciiCode: []
+  },
+  fourthFloor: {
+    //Cada palabra de la frase será una posición del array
+    wordsInUppercase: [],
+    wordsInLowercase: []
+  },
+  fifthFloor: {
+    // En este nivel codificarás la frase para que sea un secreto.
+    // Si el caracter es una vocal, la sustituirás por un número siendo a-1 e-2 i-3 o-4 u-5
+    // Si el caracter es una consonante deberás sustituirlo por su consonante anterior, si fuera una c, sería una b y si fuera una p sería una ñ y así sucesivamente
+    // Si el caracter es un espacio u otro caracter que no sea una letra lo sustituirás por una letra random del alfabeto
+    secretCode: ''
+  }
+};
