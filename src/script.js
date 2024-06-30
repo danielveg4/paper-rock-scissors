@@ -323,3 +323,26 @@ const vowelsPhrase = phrase => {
 
 
 vowelsPhrase('esto es una frase espectacular')
+
+/* multiplica cada uno de los numeros del array por un numero aleatorio del 1 al 10, si el resultado es para para even y si es impar para odd */
+
+const tenArray = numbers => {
+    const even = [];
+    const odd = [];
+    
+    for (let i = 0; i < numbers.length; i++) {
+        randomNumber = Math.floor(Math.random()*11);
+        result = numbers[i] * randomNumber;
+        if (result % 2 === 0) {
+            even.push(result);
+        } else {
+            odd.push(result);
+        }
+    }
+    console.log(numbers);
+    console.log('even: ' + even);
+    console.log('odd: ' + odd);
+
+}
+
+tenArray([1,2,3,4,5,6,7,8,9,10])
