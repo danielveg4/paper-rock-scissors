@@ -422,7 +422,31 @@ const numbersData = {
     // Array de numbers al revés
     reversedNumbers: []
   }
+
 };
+
+    for (let i = 0; i < numbersData.numbers.length; i++) {
+        numbersData.firstFloor.firstRoom.numbersPlus2.push(numbersData.numbers[i] + 2);
+        numbersData.firstFloor.secondRoom.numbersMinus2.push(numbersData.numbers[i] - 2);
+        numbersData.secondFloor.firstRoom.numbersDouble.push(numbersData.numbers[i] * 2);
+        numbersData.secondFloor.secondRoom.numbersDivided2.push(numbersData.numbers[i] / 2);
+        numbersData.fourthFloor.squareNumbers.push(numbersData.numbers[i] * numbersData.numbers[i]);
+        numbersData.fourthFloor.cubeNumbers.push(numbersData.numbers[i] * numbersData.numbers[i] * numbersData.numbers[i]);
+        numbersData.fifthFloor.randomNumbers.push(Math.floor(Math.random() * numbersData.numbers[i]))
+
+        if (numbersData.numbers[i] % 2 === 0) {
+            numbersData.thirdFloor.onlyEven.push(numbersData.numbers[i]);
+        } else {numbersData.thirdFloor.onlyOdd.push(numbersData.numbers[i]);}
+    }
+
+// falta el reverse
+
+console.log(numbersData)
+
+
+
+
+
 
 
 // Dado este objeto, rellénalo con los valores que te pido sacando los datos de la propiedad "phrase". 
@@ -453,6 +477,48 @@ const stringsData = {
     // Si el caracter es una vocal, la sustituirás por un número siendo a-1 e-2 i-3 o-4 u-5
     // Si el caracter es una consonante deberás sustituirlo por su consonante anterior, si fuera una c, sería una b y si fuera una p sería una ñ y así sucesivamente
     // Si el caracter es un espacio u otro caracter que no sea una letra lo sustituirás por una letra random del alfabeto
-    secretCode: ''
+    secretCode: []
   }
 };
+
+const vocales = ['a', 'e', 'i', 'o', 'u'];
+const espacios = [' ', ',', '.'];
+for (const letter of stringsData.phrase) {
+    if (vocales.includes(letter)) {
+    stringsData.firstFloor.vowels.push(letter);
+} else if (espacios.includes(letter)) {
+    console.log('hay signos de puntuación')
+} else (stringsData.secondFloor.consonants.push(letter))
+}
+
+const randomWord = 'z';
+
+for (const letter of stringsData.phrase) {
+    if (letter === 'a') {
+        stringsData.fifthFloor.secretCode.push('1')
+    } else if (letter === 'e') {
+        stringsData.fifthFloor.secretCode.push('2')
+    } else if (letter === 'i') {
+        stringsData.fifthFloor.secretCode.push('3')
+    } else if (letter === 'o') {
+        stringsData.fifthFloor.secretCode.push('4')
+    } else if (letter === 'u') {
+        stringsData.fifthFloor.secretCode.push('5')
+    } else if (espacios.includes(letter)) {
+        stringsData.fifthFloor.secretCode.push(randomWord)
+    }
+}
+
+const words = stringsData.phrase.split(' ');
+
+for (word of words) {
+    if (word[0] === word[0].toUpperCase()) {
+        stringsData.fourthFloor.wordsInUppercase.push(word);
+    } else {
+        stringsData.fourthFloor.wordsInLowercase.push(word)
+    }
+}
+
+// falta valor asccii. PAra el último se debe hacer tmb con ascii?? sobre todo el de las consonantes
+
+console.log(stringsData)
