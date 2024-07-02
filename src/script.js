@@ -481,15 +481,21 @@ const stringsData = {
   }
 };
 
-const vocales = ['a', 'e', 'i', 'o', 'u'];
-const espacios = [' ', ',', '.'];
+const regexVowles = /[aeiou]/i;
+const regexLetters = /[a-z]/i;
+
 for (const letter of stringsData.phrase) {
-    if (vocales.includes(letter)) {
+    if (regexVowles.test(letter)) {
     stringsData.firstFloor.vowels.push(letter);
-} else if (espacios.includes(letter)) {
-    console.log('hay signos de puntuación')
-} else (stringsData.secondFloor.consonants.push(letter))
+} else if (regexLetters.test(letter) && !regexVowles.test(letter)) {
+    stringsData.secondFloor.consonants.push(letter);
+} 
+
+stringsData.thirdFloor.asciiCode.push(letter.charCodeAt());
+
 }
+
+
 
 const randomWord = 'z';
 
@@ -504,14 +510,27 @@ for (const letter of stringsData.phrase) {
         stringsData.fifthFloor.secretCode.push('4')
     } else if (letter === 'u') {
         stringsData.fifthFloor.secretCode.push('5')
-    } else if (espacios.includes(letter)) {
-        stringsData.fifthFloor.secretCode.push(randomWord)
+    } 
+}
+
+const consonantes = 'bcdfghjklmnpqrstvwxyz';
+let auxSecretCode = '';
+for (const letter of stringsData.phrase) {
+    if (consonantes.includes(letter)) {
+        let previousLetterPosition = consonantes.indexOf(letter) - 1;
+        if (previousLetterPosition === -1) {
+            previousLetterPosition = consonantes.length -1;
+        }
+        auxSecretCode += consonantes[previousLetterPosition];
+    } else {
+        auxSecretCode += letter;
     }
 }
+console.log(auxSecretCode)
 
 const words = stringsData.phrase.split(' ');
 
-for (word of words) {
+for (const word of words) {
     if (word[0] === word[0].toUpperCase()) {
         stringsData.fourthFloor.wordsInUppercase.push(word);
     } else {
@@ -519,6 +538,23 @@ for (word of words) {
     }
 }
 
-// falta valor asccii. PAra el último se debe hacer tmb con ascii?? sobre todo el de las consonantes
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+const randomNumberAlphabet = Math.floor(Math.random() * alphabet.length);
+const randomCharacter = alphabet.charAt(randomNumber);
+auxSecretCode = auxSecretCode.replaceAll(/[^a-z0-9]/gi, randomCharacter)
 
 console.log(stringsData)
+
+/* forecha no devuelve nada, map sí */
+
+wordssss = ['hola', 'Como', 'Estamos', 'hoy']
+
+const filteredWords = wordssss.filter(word => word.charAt(0) === word.charAt(0).toUpperCase());
+const mapedWords = wordssss.map(word => word.toUpperCase())
+const foreachWords = []
+wordssss.forEach(word => {
+    foreachWords.push(word.toUpperCase());
+  });
+console.log(filteredWords)
+console.log(mapedWords)
+console.log(foreachWords)
