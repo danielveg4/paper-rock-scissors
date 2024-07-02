@@ -545,7 +545,12 @@ auxSecretCode = auxSecretCode.replaceAll(/[^a-z0-9]/gi, randomCharacter)
 
 console.log(stringsData)
 
-/* forecha no devuelve nada, map sí */
+/* forecha no devuelve nada, map sí 
+basicamente:
+- foreach hace algo con el array pero no devuelve nada, asi que hay que crear un array vacío
+- map hace ese algo y devuelve
+- filter te devuelve una parte del array filtrada */
+
 
 wordssss = ['hola', 'Como', 'Estamos', 'hoy']
 
@@ -558,3 +563,15 @@ wordssss.forEach(word => {
 console.log(filteredWords)
 console.log(mapedWords)
 console.log(foreachWords)
+
+/* sort */
+
+namesToSort = ['dani', 'juan', 'pepe', 'alfredo', 'ádrian']
+
+namesToSort.sort ((a, b) => {
+    if (a.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') > b.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')) return 1;
+    if (b.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') < a.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')) return -1;
+    return;
+})
+
+console.log(namesToSort)
