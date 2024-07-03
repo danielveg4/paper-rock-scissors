@@ -566,12 +566,12 @@ console.log(foreachWords)
 
 /* sort */
 
-namesToSort = ['dani', 'juan', 'pepe', 'alfredo', 'ádrian']
 
-namesToSort.sort ((a, b) => {
+namesToSort = ['dani', 'juan', 'pepe', 'alfredo', 'ádrian']
+const sortedNames = [...namesToSort].sort ((a, b) => {
     if (a.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') > b.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')) return 1;
     if (b.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') < a.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')) return -1;
     return;
 })
 
-console.log(namesToSort)
+console.log(namesToSort, sortedNames)
