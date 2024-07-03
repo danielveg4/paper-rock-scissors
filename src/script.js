@@ -575,3 +575,59 @@ const sortedNames = [...namesToSort].sort ((a, b) => {
 })
 
 console.log(namesToSort, sortedNames)
+
+
+const multipleArray = numbers => {
+    if (!Array.isArray(numbers)) {
+        console.log('el parametro no es un array');
+        return;
+    }
+    numbers.forEach((number, index) => console.log(number * index))
+}
+
+multipleArray([1,2,3,4,5,6,7])
+
+const indexArray = numbers => {
+    if (!Array.isArray(numbers)){
+        console.log('el parametro no es un array');
+        return;
+    }
+    const newArray = numbers.map((number, index) => number / (index + 2))
+    return newArray;
+}
+
+const resultDividedByIndex = indexArray([1,2,3,4,5,6,7])
+
+console.log(resultDividedByIndex)
+
+const upperCaseArray = words => {
+    if (!Array.isArray(words)){
+        console.log('el parametro no es un array');
+        return;
+    }
+    const upperCaseWords = words.map(word => word.toUpperCase())
+    console.log(upperCaseWords)
+}
+
+
+upperCaseArray(['hola', 'como', 'estamos'])
+
+/* some y filter */
+
+const wordsAndLetter = (words, letter) => {
+    if (!Array.isArray(words)){
+        console.log('el parametro no es un array');
+        return;
+    }
+    const wordsExists = words.some(word => word.toLowerCase().startsWith(letter.toLowerCase()));
+    if (!wordsExists) {
+        console.log('no hay palabras que empiecen por la letra');
+        return;
+    } 
+
+    const filteredWords = words.filter(word => word.toLowerCase().startsWith(letter.toLowerCase()));
+    return filteredWords;
+};
+
+const filteredWords3 = wordsAndLetter(['hola', 'como', 'estamos'], 'e');
+console.log(filteredWords3)
