@@ -631,3 +631,171 @@ const wordsAndLetter = (words, letter) => {
 
 const filteredWords3 = wordsAndLetter(['hola', 'como', 'estamos'], 'e');
 console.log(filteredWords3)
+
+
+const tenthArray3 = numbers => {
+    if(!Array.isArray(numbers)){
+        console.log('introduce un array');
+        return;
+    }
+    if (numbers.length !== 10) {
+        console.log('tienen que ser 10 números!')
+        return;
+    }
+    let result = 0;
+    numbers.forEach(number => result = result + number);
+    console.log(result)
+}
+
+tenthArray3([1,2,3,4,5,6,7,8,9,10])
+
+const tenthArray4 = numbers => {
+    if(!Array.isArray(numbers)){
+        console.log('introduce un array');
+        return;
+    }
+    if (numbers.length !== 10) {
+        console.log('tienen que ser 10 números!')
+        return;
+    }
+    
+    numbers.forEach(number => console.log('Tenemos el número ' + number + ' - Cuadrado: ' + (number*number) + ' - Cubo: ' + (number*number*number)) )
+}
+
+
+tenthArray4([1,2,3,4,5,6,7,8,9,10])
+
+const wordToVowels = word => {
+
+    vowelsRegex = /[aeiouáéíóú]/;
+    const wordToArray = word.split('');
+    console.log(wordToArray);
+    let newWord = '';
+    wordToArray.forEach(letter => {if (vowelsRegex.test(letter)) {
+        newWord += letter.toUpperCase()} else {
+        newWord += letter;
+    }})
+    console.log(newWord)
+}
+
+wordToVowels('palabrate')
+
+
+const tenthArray5 = numbers => {
+    
+    const even = [];
+    const odd = [];
+    
+    numbers.forEach(number => {
+        const randomNumber = Math.floor(Math.random() * 11);
+        const result = randomNumber * number;
+        if (result % 2 === 0) even.push(result);
+        else odd.push(result)
+        }
+    )
+    console.log(numbers, even, odd)
+}
+
+tenthArray5([1,2,3,4,5,6,7,8,9,10])
+
+
+/* crea una funcion que reciba un array de 5 palabras, debe imprimir por consola un array
+que contenga la inicial y la ultima letra de cada palabra en mayusculas */
+
+
+const fiveWordsToFirstLetter = words => {
+    const newArray = []
+    words.forEach(word => {
+        firstLetter = word[0].toUpperCase();
+        lastLetter = word[word.length-1].toUpperCase()
+        newArray.push(firstLetter, lastLetter);
+    })
+    console.log(newArray)
+}
+
+
+fiveWordsToFirstLetter(['hola', 'como', 'estamos', 'hoy', 'pana'])
+
+/* crea una funcion que reciba un array de 10 numeros y te diga si alguno es mayor de 5 */
+
+const tenthArray6 = numbers => {
+    mayoresArray = [];
+    menoresArray = [];
+    numbers.forEach(number => {
+        if (number >= 5) {
+            mayoresArray.push(number)
+        } else {menoresArray.push(number)}
+    })
+    console.log('Los mayores son ' + mayoresArray + ' y los menores son ' + menoresArray)
+}
+
+tenthArray6([1,2,3,4,5,6,7,8,9])
+
+
+/* crea una funcion que reciba un array de 5 palabras y un número y te devuelva un array con las palabras que tienen esa longitud */
+
+
+const numberAndWord = (words, number) => {
+    if (!Array.isArray(words)){
+        console.log('pasa un array!');
+        return;
+    }
+    if (words.length !== 5) {
+        console.log('introduce 5 palabras')
+    }
+    wordsSameLengthAsNumber = []
+    words.forEach( word => {
+        if (word.length == number) {
+            wordsSameLengthAsNumber.push(word)
+        } else {console.log('palabras con longitud distinta: ' + word)}
+        }
+        )
+    console.log(wordsSameLengthAsNumber)
+}
+
+
+numberAndWord(['hola', 'adios', 'casa', 'perro', 'gato'], 4)
+
+
+/* crea una función que reciba un array de números y un número y te devuelva un array con los numeros
+que sean divisores de ese número */
+
+const numbersAndNumber = (numbers, numberAlone) => {
+    if (!Array.isArray(numbers)){
+        console.log('pasa un array!');
+        return;
+    }
+    const filteredNumbers = numbers.filter(number => number % numberAlone == 0);
+    console.log(filteredNumbers)
+}
+
+
+numbersAndNumber([10,15,18,25,34,40], 4)
+
+/* Crea una función que reciba este array y te devuelva sólo los usuarios cuya edad sea menor de 30 */
+
+
+const usersArrayAge = users => {
+    const youngPeople = users.filter(user => user.age < 30);
+    return youngPeople;
+}
+
+const youngPeople = usersArrayAge([
+    { name: 'John', age: 25 },
+    { name: 'Jane', age: 30 },
+    { name: 'Bob', age: 20 }
+    ]); 
+
+console.log(youngPeople)
+
+/* Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor. */
+
+const sortedWords = words => {
+    
+}
+
+sortedWords(['casa', 'ordenador', 'paula', 'daniel', 'apples'])
+
+
+
+
