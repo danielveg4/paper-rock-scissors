@@ -791,10 +791,45 @@ console.log(youngPeople)
 /* Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor. */
 
 const sortedWords = words => {
-    
+    const sortWords = words.sort((a, b) => {
+    if (a.length>b.length) return -1;
+    if (a.length < b.length) return 1;
+    return 0;
+    } )
+    console.log(sortWords)
 }
 
 sortedWords(['casa', 'ordenador', 'paula', 'daniel', 'apples'])
+
+/* Crea una función que reciba un array de números desordenados, de forma aleatoria, unos se multiplicarán por 2 
+y otros se dividirán por 2, mezcla ese array de forma aleatoria y después ordenalo de menor a mayor */
+
+
+const randomArray = numbers => {
+    const newRandomArray = []
+    const result = numbers.map(number => {
+        const randomNumber = Math.floor(Math.random() * 2);
+        if (randomNumber < 1) {
+            number = number * 2;
+        } else if (randomNumber >= 1) {
+            number = number / 2;
+        }
+        newRandomArray.push(number)
+
+    }
+    )
+
+    console.log(newRandomArray)
+
+
+}
+
+    
+
+randomArray([22, 85, 61, 12, 93, 58, 3, 90])
+
+
+
 
 
 
