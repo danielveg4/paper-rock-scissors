@@ -808,7 +808,7 @@ y otros se dividirán por 2, mezcla ese array de forma aleatoria y después orde
 const randomArray = numbers => {
     
     const result = numbers.map(number => {
-        const randomNumber = Math.floor(Math.random());
+        const randomNumber = Math.random();
         if (randomNumber < 0.5) {
             return number * 2;
         } return number / 2;
@@ -820,19 +820,56 @@ const randomArray = numbers => {
         console.log(sortedArry)
     }
     
-
-
-
-
-
-
-    
-
 randomArray([22, 85, 61, 12, 93, 58, 3, 90])
 
+/* Crea una función que reciba un array de 5 números de 2 dígitos. La función debe ser capaz de sumar los digitos de cada número, 
+es decir si yo le envío [21, 34, 87, 10, 28] la función tendrá que ser capaz de devolverme un array con [3, 7, 15, 1, 10] */
 
 
 
+/* Partiendo de este HTML selecciona en JavaScript el h3 y utilizándolo como punto de partida imprime la información de todos los elementos 
+que hay en formato "familia": Soy un h3 con el id... y la clase... mi padre es... mi hermano es ... No puedes seleccionar ningún elemento más,
+sólo el h3.
 
+<header id="header" class="header">
+  <h1 id="main-title" class="title">Soy un título</h1>
+  <h2 id="main-subtitle" class="subtitle">Soy un subtítulo</h2>
+  <h3 id="start-point" class="start">
+</header> */
+
+const thirdTitleElement = document.getElementById('start-point');
+console.log('Soy un h3 con el id ' + thirdTitleElement.id + ' y la clase ' + thirdTitleElement.className + '. Mi padre es ' + thirdTitleElement.parentElement.localName +  ' y mi hermano es ' + thirdTitleElement.previousElementSibling.previousElementSibling.className);
+
+
+/* Añadiendo este fragmento de código a tu HTML, invierte el contenido de las etiquetas utilizando la propiedad textContent a través de JavaScript,
+ el <span> deberá tener el contenido del <p> y el <p> el del <span>. La única modificación que puedes hacer al HTML es añadir id a las etiquetas
+
+<p>Soy un párrafo</p>
+<span>Soy un span</span>
+
+El resultado final deberá ser éste pero haciendo el cambio desde JavaScript.
+<p>Soy un span</p>
+<span>Soy un párrafo</span> */
+
+const textElement = document.querySelector('p');
+const spanElement = document.querySelector('span');
+
+const oldText = textElement.textContent;
+textElement.textContent = spanElement.textContent;
+spanElement.textContent = oldText;
+
+
+
+/* - Añadiendo este HTML al que ya tienes, muestra por consola el número de etiquetas que hay de cada elemento.
+  - Hay 1 Header
+  - Hay 1 h1
+    ......
+ */
+
+
+const sectionElement = document.querySelector('section');
+console.log('Hay un header: ' + sectionElement);
+const allArticleElements = document.querySelectorAll('article');
+console.log('Hay ' + allArticleElements.length + ' artículos')
 
 
