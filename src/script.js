@@ -806,23 +806,25 @@ y otros se dividirán por 2, mezcla ese array de forma aleatoria y después orde
 
 
 const randomArray = numbers => {
-    const newRandomArray = []
+    
     const result = numbers.map(number => {
-        const randomNumber = Math.floor(Math.random() * 2);
-        if (randomNumber < 1) {
-            number = number * 2;
-        } else if (randomNumber >= 1) {
-            number = number / 2;
-        }
-        newRandomArray.push(number)
-
+        const randomNumber = Math.floor(Math.random());
+        if (randomNumber < 0.5) {
+            return number * 2;
+        } return number / 2;
+    })
+        console.log(result)
+        const randomSort = result.sort(()=> Math.random( - 0.5))
+        console.log(randomSort)
+        const sortedArry = randomSort.sort((a, b) => a -b);
+        console.log(sortedArry)
     }
-    )
-
-    console.log(newRandomArray)
+    
 
 
-}
+
+
+
 
     
 
