@@ -872,4 +872,43 @@ console.log('Hay un header: ' + sectionElement);
 const allArticleElements = document.querySelectorAll('article');
 console.log('Hay ' + allArticleElements.length + ' artículos')
 
+/* añadele un evento de click que muestre en la consola su texto al hacer click. */
+
+const consoleButtonElement = document.getElementById('buttonexercice');
+
+consoleButtonElement.addEventListener('click', () => {
+    console.log(consoleButtonElement.textContent)
+})
+
+/*  Crea un h1 con el texto "Soy un título ", al ponerte encima con el ratón, deberá cambiar al texto 
+a "Quita de encima!!!" y al quitarte, deberá volver a poner "Soy un título" */
+
+const h1Element = document.getElementById('soyUnH1');
+
+h1Element.addEventListener('mouseover', (event) => {
+    event.target.textContent = 'Quita de encima!';
+})
+
+h1Element.addEventListener('mouseout', () => {
+    h1Element.textContent = 'Soy un h1';
+})
+
+/*  Agrega un evento que escuche el cambio de tamaño de ventana y haz que un h1 muestre 
+el mensaje "La ventana tiene un ancho de ...px y un alto de ...px . */
+
+const windowH1Element = document.getElementById('h1Ventana');
+
+window.addEventListener('resize', () => {
+    windowH1Element.textContent = 'La ventana tiene un ancho de ' + window.innerWidth + 'px y un alto de ' + window.innerHeight + 'px . ';
+})
+
+/* Crea un p con el texto "esperando entrada de teclado" al pulsar cualquier tecla deberá poner "Has pulsado la tecla ...", 
+como extra puedes poner si ha pulsado alguna combinación de teclas, alt + r, control + g, etc. */
+
+const tecladoElement = document.getElementById('soyUnP');
+
+window.addEventListener('keydown', (event) => {
+    tecladoElement.textContent = 'Has pulsado la techa ' + event.key;
+})
+
 
