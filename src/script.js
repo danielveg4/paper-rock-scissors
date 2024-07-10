@@ -841,22 +841,7 @@ const thirdTitleElement = document.getElementById('start-point');
 console.log('Soy un h3 con el id ' + thirdTitleElement.id + ' y la clase ' + thirdTitleElement.className + '. Mi padre es ' + thirdTitleElement.parentElement.localName +  ' y mi hermano es ' + thirdTitleElement.previousElementSibling.previousElementSibling.className);
 
 
-/* Añadiendo este fragmento de código a tu HTML, invierte el contenido de las etiquetas utilizando la propiedad textContent a través de JavaScript,
- el <span> deberá tener el contenido del <p> y el <p> el del <span>. La única modificación que puedes hacer al HTML es añadir id a las etiquetas
 
-<p>Soy un párrafo</p>
-<span>Soy un span</span>
-
-El resultado final deberá ser éste pero haciendo el cambio desde JavaScript.
-<p>Soy un span</p>
-<span>Soy un párrafo</span> */
-
-const textElement = document.querySelector('p');
-const spanElement = document.querySelector('span');
-
-const oldText = textElement.textContent;
-textElement.textContent = spanElement.textContent;
-spanElement.textContent = oldText;
 
 
 
@@ -1049,6 +1034,7 @@ const getPassword = () => {
 const printPassword = () => {
     const generatedPassword = getPassword();
     passwordCampElement.textContent = generatedPassword;
+    lengthTextElement.textContent = `Length: ${inputRangeElement.value}`
 }
 
 buttonPasswordElement.addEventListener('click', printPassword)
