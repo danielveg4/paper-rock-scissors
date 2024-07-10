@@ -1012,3 +1012,43 @@ finalFormElement.addEventListener('submit', event => {
 })
 
 finalFormElement.addEventListener('input', validateForm)
+
+/* 
+    Crear la estructura HTML
+        Campo para la contraseña generada
+        Texto para conocer la longitud
+        Input range para la longitud
+        Botón para generar la contraseña
+    JS
+        Localizar los elementos del DOM
+        Añadir las constantes y variables del proyecto: const allowedCharacteres
+        Identificar qué funciones necesitamos: la que genera el pw, la que imprimi el pw, la que asigme la longitud del pw
+        Identificar los eventos: cambio del input y click del botón
+*/
+
+const passwordCampElement = document.getElementById('password-camp')
+const lengthTextElement = document.getElementById('length-text')
+const inputRangeElement = document.getElementById('input-range')
+const buttonPasswordElement = document.getElementById('button-password')
+
+const allowedCharacters = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890+-.,!"·$%&/()=?{}';
+
+console.log(inputRangeElement.value)
+
+const getPassword = () => {
+    let generatedPassword = '';
+    const numeroCaracteres = inputRangeElement.value;
+    for (let i = 0; i < numeroCaracteres; i++) {
+        const randomNumberPassword = Math.floor(Math.random() * allowedCharacters.length);
+        generatedPassword += allowedCharacters[randomNumberPassword];
+    }
+    console.log(generatedPassword);
+    return generatedPassword;
+}
+
+const printPassword = () => {
+    const generatedPassword = getPassword();
+    passwordCampElement.textContent = generatedPassword;
+}
+
+buttonPasswordElement.addEventListener('click', printPassword)
