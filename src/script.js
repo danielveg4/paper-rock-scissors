@@ -1045,9 +1045,7 @@ const checkPasswordOptions = () => {
     if (symbolsInputElement.checked) {
         allowedCharacters += symbolsCharacters
     }
-
-    return allowedCharacters;
-   
+    return allowedCharacters; 
 }
 
 const getPassword = () => {
@@ -1074,3 +1072,13 @@ uppercaseInputElement.addEventListener('change', checkPasswordOptions)
 lowercaseInputElement.addEventListener('change', checkPasswordOptions)
 numbersInputElement.addEventListener('change', checkPasswordOptions)
 symbolsInputElement.addEventListener('change', checkPasswordOptions)
+
+/* const rootStyles = document.documentElement.style;
+rootStyles.setProperty('propiedad', 'color') */
+
+/* Crea un botón web que al pulsarlo genere un color aleatorio para el body y se aplique, haz una funcion para FGB y otra para hexadecimal */
+
+/* Crea un div de 20x20px del color que quieras y sincronçizalo con el movimiento del raton, el devi deberá quedarse pegada a la flecha de tu ratçon y moverse con él */
+
+/* crea un div de color rojo y colócalo en la parte superior izquierda. Haz que la web tenga un min-height de 500ch para generar scroll. El ancho del div deberá
+sincronizarse con el scrolll, si estás arriba medirá 0 y si estás abajo meirá el 100%. según vayas haciendo scroll deberá ir creciendo o encogiendo */
