@@ -1097,7 +1097,94 @@ const changeBackgroundColorRGB = () => {
 buttonChangeColorElement.addEventListener('click', changeBackgroundColorRGB)
 
 
-/* Crea un div de 20x20px del color que quieras y sincronçizalo con el movimiento del raton, el devi deberá quedarse pegada a la flecha de tu ratçon y moverse con él */
+/* Crea un div de 20x20px del color que quieras y sincronçizalo con el movimiento del raton, el div deberá quedarse pegada a la flecha de tu ratçon y moverse con él */
 
-/* crea un div de color rojo y colócalo en la parte superior izquierda. Haz que la web tenga un min-height de 500ch para generar scroll. El ancho del div deberá
-sincronizarse con el scrolll, si estás arriba medirá 0 y si estás abajo meirá el 100%. según vayas haciendo scroll deberá ir creciendo o encogiendo */
+const divMoveElement = document.getElementsByClassName('div-move');
+
+const muvingElDiv = (event) => {
+    const mouseX = event.x;
+    const mouseY = event.y;
+
+    const rootStyles = document.documentElement.style;
+
+    rootStyles.setProperty('--x', `${mouseX}px`);
+    rootStyles.setProperty('--y', `${mouseY}px`)
+}
+
+window.addEventListener('mousemove', muvingElDiv);
+
+
+/* PIEDRA, PAPEL O TIJERA
+
+1. HTML y CSS: header y marcador, botones de piedra-papel-tijera
+2. Leer los botones y el marcador
+3. Jugadas posibles
+4. Leer click
+5. Jugada aleatoria del PC
+6. Mostrar ganador
+7. Sumar puntos al marcador
+
+*/
+
+const userPointsElement = document.getElementById('point-user');
+const pcPointsElement = document.getElementById('point-pc');
+const paperButtonElement = document.getElementById('papel');
+const rockButtonElement = document.getElementById('piedra');
+const scissorButtonElement = document.getElementById('tijera');
+const userPickedElement = document.getElementById('result-user');
+const pcPickedElement = document.getElementById('result-pc');
+const textResultElement = document.getElementById('result');
+
+let userContador = 0;
+let pcContador = 0;
+
+const pcMove = () => {
+    const randomNumberPcMove = Math.floor(Math.random() * 3) + 1;
+    let pcMoveRound;
+    if (randomNumberPcMove === 1) {
+        pcMoveRound = 'papel';
+        console.log(pcMoveRound);
+    } else if (randomNumberPcMove === 2){
+        pcMoveRound = 'piedra';
+        console.log(pcMoveRound);
+    } else if (randomNumberPcMove === 3){
+        pcMoveRound = 'tijera';
+        console.log(pcMoveRound)
+    }
+    return pcMoveRound;
+}
+
+const userMove = (event) => {
+    userMoveRound = event.target.id;
+    console.log(`${event.target.id}`);
+    return userMoveRound;
+}
+
+const resultMove = (event) => {
+    const userMoveRound = userMove(event); 
+    const pcMoveRound = pcMove();
+    if (userMoveRound === pcMoveRound) {
+        console.log('empate');
+        textResultElement.textContent = 'Empate';
+    } else if (
+        (userMoveRound === 'piedra' && pcMoveRound === 'tijera') ||
+        (userMoveRound === 'tijera' && pcMoveRound === 'papel') ||
+        (userMoveRound === 'papel' && pcMoveRound === 'piedra')
+    ) {
+        textResultElement.textContent = 'El usuario ha ganado';
+        userContador++;
+        userPointsElement.textContent = userContador;
+        
+    } else {
+        textResultElement.textContent = 'El PC ha ganado';
+        pcContador++;
+        pcPointsElement.textContent = pcContador;
+    }
+}
+
+/* const userPointsElement = document.getElementById('point-user');
+const pcPointsElement = document.getElementById('point-pc'); */
+
+paperButtonElement.addEventListener('click', resultMove);
+rockButtonElement.addEventListener('click', resultMove);
+scissorButtonElement.addEventListener('click', resultMove);
