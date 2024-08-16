@@ -14,15 +14,33 @@ const validMoves = ['rock', 'paper', 'scissor'];
 const gameRules = {
     paper: {
         rock: true,
-        scissor: false
+        scissor: false,
+        spock: false,
+        lizzard: true
     },
     rock: {
         paper: false,
-        scissor: true
+        scissor: true,
+        spock: true,
+        lizzard: false
     },
     scissor: {
         paper: true,
-        rock: false
+        rock: false,
+        spock: true,
+        lizzard: false
+    },
+    lizzard: {
+        paper: true,
+        rock: true,
+        scissor: false,
+        spock: false
+    },
+    spock: {
+        paper: true,
+        rock: false,
+        scissor: true,
+        lizzard: false
     }
 };
 
@@ -59,13 +77,13 @@ const printMove = (event) => {
     userPointsElement.textContent = userPoints;
     pcPointsElement.textContent = pcPoints;
     userMoveElement.textContent = userMove;
-    pcMoveElement.textContent = pcMove;
-
-    
+    pcMoveElement.textContent = pcMove;    
 }
 
 
-
+if (document.body.dataset.mode === 'advanced') {
+    validMoves.push('lizzard', 'spock')
+}
 
 
 gameOptionsElement.addEventListener('click', printMove);
