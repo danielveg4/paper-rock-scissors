@@ -226,40 +226,25 @@ const generateNumbers = () => {
     return numbers; 
 }
 
-generateNumbers();
-
 const evenFragment = document.createDocumentFragment();
 const oddFragment = document.createDocumentFragment();
 
 const numbersToDOM = () => {
-    const odds = [];
-    const evens = [];
+
     const numbers = generateNumbers();
 
     for (let i = 0; i < numbers.length; i++) {
+        const newLi = document.createElement('li'); 
+        newLi.textContent = numbers[i];
+        
         if (numbers[i] % 2 === 0) {
-            evens.push(numbers[i]);
+            evenFragment.appendChild(newLi); 
         } else {
-            odds.push(numbers[i]);
+            oddFragment.appendChild(newLi); 
         }
     }
 
-    console.log(odds);
-    console.log(evens);
 
-    odds.forEach(odd => {
-        const newUl = document.createElement('li');
-        newUl.textContent = odd;
-        oddFragment.append(odd)
-    }
-    )
-
-    evens.forEach(even => {
-        const newUl = document.createElement('li');
-        newUl.textContent = even;
-        evenFragment.append(even)
-    }
-    )
 
     evenNumbersElement.append(evenFragment)
     oddNumbersElement.append(oddFragment)
