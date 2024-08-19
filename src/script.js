@@ -220,34 +220,30 @@ const generateNumbers = () => {
 
         if (!numbers.includes(randomNumber)) {
             numbers.push(randomNumber);
-        } else {
         }
     }
     return numbers; 
 }
 
-const evenFragment = document.createDocumentFragment();
-const oddFragment = document.createDocumentFragment();
-
 const numbersToDOM = () => {
-
     const numbers = generateNumbers();
 
+    const evenFragment = document.createDocumentFragment();
+    const oddFragment = document.createDocumentFragment();
+
     for (let i = 0; i < numbers.length; i++) {
-        const newLi = document.createElement('li'); 
+        const newLi = document.createElement('li');
         newLi.textContent = numbers[i];
         
         if (numbers[i] % 2 === 0) {
-            evenFragment.appendChild(newLi); 
+            evenFragment.append(newLi); 
         } else {
-            oddFragment.appendChild(newLi); 
+            oddFragment.append(newLi);  
         }
     }
 
-
-
-    evenNumbersElement.append(evenFragment)
-    oddNumbersElement.append(oddFragment)
+    evenNumbersElement.append(evenFragment); 
+    oddNumbersElement.append(oddFragment);
 }
 
 numbersToDOM();
