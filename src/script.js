@@ -362,19 +362,41 @@ const printCards = () => {
 
 cardsButtonElement.addEventListener('click', printCards)
 
-/* - Con esta estructura Y SIN MODIFICARLA, crea una función que, a medida que vayas escribiendo, te ponga dentro de la lista:
-
-  - El texto tiene X caracteres.
-  - El texto tiene X vocales.
-  - El texto tiene X consonantes.
-  - El texto tiene X espacios
-  - El texto tiene X caracteres especiales
-
-Pista: Para vaciar el contenido de un contenedor se puede usar contenedor.textContent = ""
+/* - Crea una función que sea capaz de eliminar el boton que pulsas
 
 ```html
 <div>
-  <input id="text" type="text" />
-  <ul id="list"></ul>
+  <button>Botón 1</button>
+  <button>Botón 2</button>
+  <button>Botón 3</button>
+  <button>Botón 4</button>
+  <button>Botón 5</button>
+  <button>Botón 6</button>
+  <button>Botón 7</button>
+  <button>Botón 8</button>
+  <button>Botón 9</button>
+  <button>Botón 10</button>
+</div>
+``` */
+
+const buttonsContainerElement = document.getElementById('buttons-container');
+
+const deleteButton = (event) => {
+    event.target.remove();
+}
+
+buttonsContainerElement.addEventListener('click', deleteButton)
+
+/* - Crea una función que reciba un número y genere un div con tantos botones dentro como número le hayais pasado. A continuación tienes que conseguir que al hacer click en cualquiera de los botones elimine el botón siguiente al que has pulsado, si no hubiera botón siguiente, elimina el anterior, y si no hay ni anterior ni siguiente se elimina él mismo y el contenedor de los botones.
+
+Si a la función le pasáramos un 5, éste debería ser el resultado.
+
+```html
+<div>
+  <button>Botón 1</button>
+  <button>Botón 2</button>
+  <button>Botón 3</button>
+  <button>Botón 4</button>
+  <button>Botón 5</button>
 </div>
 ``` */
