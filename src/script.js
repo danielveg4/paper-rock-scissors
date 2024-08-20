@@ -396,13 +396,26 @@ const buttonConainerElement = document.getElementById('button-container');
 
 const generateButton = () => {
     const randomNumberButton = Math.floor(Math.random() * 10);
-    console.log(randomNumberButton)
+    const buttonFragment = document.createDocumentFragment();
+    for (let i = 1; i < randomNumberButton; i++) {
+        const newButton = document.createElement('button');
+        newButton.textContent = `Botón ${i}`;
+        buttonFragment.append(newButton)
+    }
+    buttonConainerElement.append(buttonFragment)
 
 }
 
 generateButton();
 
 const removeButton = (event) => {
+    if (event.target.nextSibling === null) {
+        event.target.previousSibling.remove();
+    } else if (event.target.nextSibling === null && event.target.previousSibling === null) {
+        event.target.parent.remove()
+    }    else {
+    event.target.nextSibling.remove();
+    }
 
 }
 
