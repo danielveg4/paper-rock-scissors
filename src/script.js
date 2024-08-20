@@ -412,15 +412,44 @@ const removeButton = (event) => {
     const clickedButton = event.target;
 
     if (clickedButton.nextSibling === null && clickedButton.previousSibling === null) {
-        // No hay ni siguiente ni anterior, eliminar el botón y el contenedor
         clickedButton.parentNode.remove();
     } else if (clickedButton.nextSibling !== null) {
-        // Eliminar el botón siguiente
         clickedButton.nextSibling.remove();
     } else if (clickedButton.previousSibling !== null) {
-        // Eliminar el botón anterior si no hay siguiente
         clickedButton.previousSibling.remove();
     }
 };
 
 buttonConainerElement.addEventListener('click', removeButton)
+
+/* - Crea una función que permita añadir elementos a la lista con la misma estructura que te doy en el ejemplo, 
+además cada vez que pulses el botón de la X debe eliminar el elemento de la lista que has pulsado.
+
+<button>Añadir elemento</button>
+<ul>
+  <!-- Cada vez que pulses el botón deberá añadirse un li con un button dentro -->
+  <li>Elemento 1 <button>X</button></li>
+</ul> */
+
+const newLiButtonElement = document.getElementById('button-li');
+const newUlListElement = document.getElementById('ul-list');
+
+let contador = 2;
+
+const createLiElement = () => {
+    const newLiElement = document.createElement('li');
+    newLiElement.textContent = `Elemento ${contador++} `;
+    newUlListElement.append(newLiElement);
+
+    const newButtonDeleteLi = document.createElement('button');
+    newButtonDeleteLi.textContent = 'X';
+    newLiElement.append(newButtonDeleteLi);
+
+    newButtonDeleteLi.addEventListener('click', () => {
+        console.log('elemento eliminado');
+        newLiElement.remove();
+    });
+}
+
+
+newLiButtonElement.addEventListener('click', createLiElement);
