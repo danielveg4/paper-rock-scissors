@@ -387,16 +387,23 @@ const deleteButton = (event) => {
 
 buttonsContainerElement.addEventListener('click', deleteButton)
 
-/* - Crea una función que reciba un número y genere un div con tantos botones dentro como número le hayais pasado. A continuación tienes que conseguir que al hacer click en cualquiera de los botones elimine el botón siguiente al que has pulsado, si no hubiera botón siguiente, elimina el anterior, y si no hay ni anterior ni siguiente se elimina él mismo y el contenedor de los botones.
+/* - Crea una función que reciba un número y genere un div con tantos botones dentro como número le hayais pasado. 
+A continuación tienes que conseguir que al hacer click en cualquiera de los botones elimine el botón siguiente al que has pulsado, 
+si no hubiera botón siguiente, elimina el anterior, y si no hay ni anterior ni siguiente se elimina él mismo y el contenedor de los botones.
+*/
 
-Si a la función le pasáramos un 5, éste debería ser el resultado.
+const buttonConainerElement = document.getElementById('button-container');
 
-```html
-<div>
-  <button>Botón 1</button>
-  <button>Botón 2</button>
-  <button>Botón 3</button>
-  <button>Botón 4</button>
-  <button>Botón 5</button>
-</div>
-``` */
+const generateButton = () => {
+    const randomNumberButton = Math.floor(Math.random() * 10);
+    console.log(randomNumberButton)
+
+}
+
+generateButton();
+
+const removeButton = (event) => {
+
+}
+
+buttonConainerElement.addEventListener('click', removeButton)
