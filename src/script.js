@@ -263,8 +263,6 @@ const inputTableElement = document.getElementById('input-table');
 const buttonTableElement = document.getElementById('button-table');
 const listTableElement = document.getElementById('list-table');
 
-
-
 const tableToDOM = () => {
     listTableElement.textContent = ""
     const tableFragment = document.createDocumentFragment();
@@ -290,3 +288,93 @@ const printTable = () => {
 inputTableElement.addEventListener('input', printTable)
 buttonTableElement.addEventListener('click', tableToDOM)
 
+// Con este objeto debes crear tarjetas de usuario que muestren todos los datos, el diseño es libre, lo importante es que muestren 
+// toda la información del usuario y la imagen de perfil. Crea una función que genere todas las tarjetas de usuario y las inserte en el DOM
+
+const USERS = [
+  {
+    name: 'Josep Flores',
+    age: 77,
+    username: 'Josep85',
+    email: 'Josep_Flores@hotmail.com',
+    profileImage: 'https://randomuser.me/api/portraits/women/24.jpg'
+  },
+  {
+    name: 'Ricardo Rosas',
+    age: 43,
+    username: 'Ricardo_Rosas',
+    email: 'Ricardo_Rosas22@yahoo.com',
+    profileImage: 'https://randomuser.me/api/portraits/men/57.jpg'
+  },
+  {
+    name: 'Iván Tamayo',
+    age: 40,
+    username: 'tamayo87',
+    email: 'Ivan_Tamayo61@yahoo.com',
+    profileImage: 'https://randomuser.me/api/portraits/men/9.jpg',
+    job: 'Lead Communications Designer'
+  },
+  {
+    name: 'Maica Villanueva',
+    age: 64,
+    username: 'Maica.Villanueva18',
+    email: 'Maica.Villanueva1@yahoo.com',
+    profileImage: 'https://randomuser.me/api/portraits/women/4.jpg'
+  },
+  {
+    name: 'Pedro Estrada',
+    age: 77,
+    username: 'Pedro29',
+    email: 'Pedro_Estrada22@hotmail.com',
+    profileImage: 'https://randomuser.me/api/portraits/men/2.jpg',
+    job: 'Central Directives Liaison'
+  },
+  {
+    name: 'Jorge Cedillo',
+    age: 33,
+    username: 'Jorge_Cedillo',
+    email: 'Jorge.Cedillo2@yahoo.com',
+    profileImage: 'https://randomuser.me/api/portraits/men/88.jpg'
+  }
+];
+
+const cardContainerElement = document.getElementById('cards-container');
+const cardsButtonElement = document.getElementById('button-cards');
+
+const printCards = () => {
+    const cardsFragment = document.createDocumentFragment();
+    for (const user of USERS) {
+        const newName = document.createElement('p');
+        const newAge = document.createElement('p');
+        const newUsername= document.createElement('p');
+        const newEmail = document.createElement('p');
+        const newImage = document.createElement('img');
+        newName.textContent = user.name;
+        newAge.textContent = user.age;
+        newUsername.textContent = user.username;
+        newEmail.textContent = user.email;
+        newImage.src = user.profileImage;
+        cardsFragment.append(newName, newAge, newUsername, newEmail, newImage)
+    }
+    cardContainerElement.append(cardsFragment)
+}
+
+
+cardsButtonElement.addEventListener('click', printCards)
+
+/* - Con esta estructura Y SIN MODIFICARLA, crea una función que, a medida que vayas escribiendo, te ponga dentro de la lista:
+
+  - El texto tiene X caracteres.
+  - El texto tiene X vocales.
+  - El texto tiene X consonantes.
+  - El texto tiene X espacios
+  - El texto tiene X caracteres especiales
+
+Pista: Para vaciar el contenido de un contenedor se puede usar contenedor.textContent = ""
+
+```html
+<div>
+  <input id="text" type="text" />
+  <ul id="list"></ul>
+</div>
+``` */
