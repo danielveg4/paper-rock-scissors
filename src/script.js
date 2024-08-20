@@ -423,6 +423,4 @@ const removeButton = (event) => {
     }
 };
 
-}
-
 buttonConainerElement.addEventListener('click', removeButton)
