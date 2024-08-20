@@ -395,7 +395,7 @@ si no hubiera botón siguiente, elimina el anterior, y si no hay ni anterior ni 
 const buttonConainerElement = document.getElementById('button-container');
 
 const generateButton = () => {
-    const randomNumberButton = Math.floor(Math.random() * 10);
+    const randomNumberButton = Math.floor((Math.random() * 10) +1 );
     const buttonFragment = document.createDocumentFragment();
     for (let i = 1; i < randomNumberButton; i++) {
         const newButton = document.createElement('button');
@@ -409,13 +409,19 @@ const generateButton = () => {
 generateButton();
 
 const removeButton = (event) => {
-    if (event.target.nextSibling === null) {
-        event.target.previousSibling.remove();
-    } else if (event.target.nextSibling === null && event.target.previousSibling === null) {
-        event.target.parent.remove()
-    }    else {
-    event.target.nextSibling.remove();
+    const clickedButton = event.target;
+
+    if (clickedButton.nextSibling === null && clickedButton.previousSibling === null) {
+        // No hay ni siguiente ni anterior, eliminar el botón y el contenedor
+        clickedButton.parentNode.remove();
+    } else if (clickedButton.nextSibling !== null) {
+        // Eliminar el botón siguiente
+        clickedButton.nextSibling.remove();
+    } else if (clickedButton.previousSibling !== null) {
+        // Eliminar el botón anterior si no hay siguiente
+        clickedButton.previousSibling.remove();
     }
+};
 
 }
 
