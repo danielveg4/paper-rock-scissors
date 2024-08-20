@@ -263,23 +263,15 @@ const inputTableElement = document.getElementById('input-table');
 const buttonTableElement = document.getElementById('button-table');
 const listTableElement = document.getElementById('list-table');
 
-const generateTable = () => {
-    const inputValue = inputTableElement.value;
-    const table = [];
-    for (let i = 1; i < 11; i++) {
-        table.push(`${inputValue} x ${i} = ${inputValue * i}`)
-    }
-    return table;
-}
+
 
 const tableToDOM = () => {
     listTableElement.textContent = ""
-    const table = generateTable();
     const tableFragment = document.createDocumentFragment();
 
-    for (let i = 0; i < table.length; i++) {
+    for (let i = 1; i < 11; i++) {
         const newLi = document.createElement('li');
-        newLi.textContent = table[i];
+        newLi.textContent = `${inputTableElement.value} x ${i} = ${inputTableElement.value * i}`;
         tableFragment.append(newLi)
     }
 
