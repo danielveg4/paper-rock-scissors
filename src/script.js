@@ -248,3 +248,53 @@ const numbersToDOM = () => {
 
 numbersToDOM();
 
+/* Con este HTML consigue que al introducir un número POSITIVO y MAYOR de 0 se genere la tabla de multiplicar de ese número del 0 al 10 
+como elementos de la lista. En el caso de que el número no sea correcto o no haya número, el botón estará desactivado.
+
+Pista: Para vaciar el contenido de un contenedor se puede usar contenedor.textContent = ""
+
+```html
+    <label>Introduce un número</label>
+    <input id="input-table" type="number" />
+    <button id="button-table" disabled>Imprimir tabla de multiplicar</button>
+    <ul id="list-table"></ul> */
+
+const inputTableElement = document.getElementById('input-table');
+const buttonTableElement = document.getElementById('button-table');
+const listTableElement = document.getElementById('list-table');
+
+const generateTable = () => {
+    const inputValue = inputTableElement.value;
+    const table = [];
+    for (let i = 1; i < 11; i++) {
+        table.push(`${inputValue} x ${i} = ${inputValue * i}`)
+    }
+    return table;
+}
+
+const tableToDOM = () => {
+    listTableElement.textContent = ""
+    const table = generateTable();
+    const tableFragment = document.createDocumentFragment();
+
+    for (let i = 0; i < table.length; i++) {
+        const newLi = document.createElement('li');
+        newLi.textContent = table[i];
+        tableFragment.append(newLi)
+    }
+
+    listTableElement.append(tableFragment)
+}
+
+const printTable = () => {
+    const inputValue = parseFloat(inputTableElement.value);
+    if (inputValue > 0 && !isNaN(inputValue)) {
+        buttonTableElement.disabled = false;
+    } else {
+        buttonTableElement.disabled = true; 
+    }
+}
+
+inputTableElement.addEventListener('input', printTable)
+buttonTableElement.addEventListener('click', tableToDOM)
+
